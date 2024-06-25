@@ -9,6 +9,12 @@ abstract class AppAssets {
   static const browseIcon = "assets/browse.png";
   static const browsrSelected = "assets/browse selected.png";
   static const image = "assets/image.png";
+  static const playButtonImage = "assets/play button.png";
+  static const poster = "assets/poster.png";
+  static const favouriteButton = "assets/bookmark.png";
+
+
+
 
 
 }
