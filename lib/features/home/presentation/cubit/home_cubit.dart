@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/features/home/data/models/popular_model.dart';
+import 'package:movie_app/features/home/data/models/upcoming_model.dart';
 import 'package:movie_app/features/home/data/repos/home_repo.dart';
 import 'package:movie_app/features/home/presentation/cubit/home_states.dart';
 
@@ -9,6 +10,7 @@ class HomeCubit extends Cubit<HomeStates> {
 
   int currentIndex = 0;
   PopularModel? popularModel;
+  UpcomingModel? upcomingModel;
 
   changeBottomNavIndex(int index) {
     currentIndex = index;
@@ -16,11 +18,22 @@ class HomeCubit extends Cubit<HomeStates> {
   }
 
   fetchPopularMovie() async {
-    emit(HomeLoading());
+    emit(PopularLoading());
     final response = await homeRepo.popualrMovie();
-    response.fold((error) => emit(HomeFailure(errorMessage: error)), (success) {
+    response.fold((error) => emit(PopularFailure(errorMessage: error)),
+        (success) {
       popularModel = success;
-      emit(HomeSuccess());
+      emit(PopularSuccess());
+    });
+  }
+
+  fetchUpcomingMovie() async {
+    emit(UpcomingLoading());
+    final response = await homeRepo.upcomingMovie();
+    response.fold((error) => emit(UpcomingFailure(errorMessage: error)),
+        (success) {
+      upcomingModel = success;
+      emit(UpcomingSuccess());
     });
   }
 }

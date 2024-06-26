@@ -13,23 +13,26 @@ class ListPopularItem extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     var cubit = context.read<HomeCubit>();
-    return BlocBuilder<HomeCubit,HomeStates>(
+    return BlocBuilder<HomeCubit, HomeStates>(
       builder: (context, state) {
-        return state is HomeSuccess? SizedBox(
-        height: height * .36,
-        width: width,
-        child: ListView.builder(
+        return state is PopularSuccess
+            ? SizedBox(
+                height: height * .36,
+                width: width,
+                child: ListView.builder(
                   itemCount: cubit.popularModel!.results!.length,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) => PopularItem(
                     poster: cubit.popularModel!.results![index].backdropPath!,
-                    moviePicture: cubit.popularModel!.results![index].posterPath!,
+                    moviePicture:
+                        cubit.popularModel!.results![index].posterPath!,
                     title: cubit.popularModel!.results![index].title!,
                     date: cubit.popularModel!.results![index].releaseDate!,
                   ),
                 ),
-      ) : ShimmerLoading(height: height * .4, width: width);
-      }, 
+              )
+            : ShimmerLoading(height: height * .4, width: width);
+      },
     );
   }
 }

@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/core/utils/app_assets.dart';
+import 'package:movie_app/core/utils/constants.dart';
+import 'package:movie_app/features/home/presentation/cubit/home_cubit.dart';
+import 'package:movie_app/features/home/presentation/cubit/home_states.dart';
+import 'package:movie_app/features/home/presentation/views/widgets/shimmer_loading.dart';
 import 'package:movie_app/features/home/presentation/views/widgets/upcoming_item.dart';
 
 class ListUpcomingItem extends StatelessWidget {
@@ -8,6 +14,7 @@ class ListUpcomingItem extends StatelessWidget {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
+    var cubit = context.read<HomeCubit>();
     return Container(
       color: Colors.grey[850],
       height: height * .25,
@@ -19,14 +26,23 @@ class ListUpcomingItem extends StatelessWidget {
             padding: EdgeInsets.all(10),
             child: Text("New Releases"),
           ),
-          SizedBox(
-            height: height * .2,
-            width: width,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: 10,
-              itemBuilder: (context, index) => const UpcomingItem(),
-            ),
+          BlocBuilder<HomeCubit, HomeStates>(
+            builder: (context, state) {
+              return state is PopularSuccess
+                  ? SizedBox(
+                      height: height * .2,
+                      width: width,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: 10,
+                        itemBuilder: (context, index) => UpcomingItem(
+                          poster:
+                              cubit.upcomingModel?.results![index].posterPath!??AppAssets.poster,
+                        ),
+                      ),
+                    )
+                  : ShimmerLoading(height: height * .2, width: width);
+            },
           )
         ],
       ),

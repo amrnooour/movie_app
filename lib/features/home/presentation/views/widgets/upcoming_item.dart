@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/core/utils/app_assets.dart';
+import 'package:movie_app/core/utils/constants.dart';
 import 'package:movie_app/features/home/presentation/views/widgets/favourite_button.dart';
 
 class UpcomingItem extends StatelessWidget {
-  const UpcomingItem({super.key});
+  final String poster;
+  const UpcomingItem({super.key, required this.poster});
 
   @override
   Widget build(BuildContext context) {
@@ -11,15 +12,17 @@ class UpcomingItem extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
-      child: Stack(children: [
-        Image.asset(
-          height: height*.2,
-          width: width*.25,AppAssets.poster,fit: BoxFit.cover,),
-          const Positioned(
-            left: 0,
-            top: 0,
-            child: FavouriteButton())
-      ],),
+      child: Stack(
+        children: [
+          Image.network(
+            height: height * .2,
+            width: width * .25,
+            "${Constants.imageUrl}$poster",
+            fit: BoxFit.cover,
+          ),
+          const Positioned(left: 0, top: 0, child: FavouriteButton())
+        ],
+      ),
     );
   }
 }

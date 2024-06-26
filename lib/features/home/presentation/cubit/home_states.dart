@@ -4,12 +4,19 @@ class HomeInitial extends HomeStates {}
 
 class HomeBottomNav extends HomeStates {}
 
-class HomeSuccess extends HomeStates {}
+class PopularSuccess extends HomeStates {}
 
-class HomeLoading extends HomeStates {}
+class PopularLoading extends HomeStates {}
 
-class HomeFailure extends HomeStates {
+class PopularFailure extends HomeStates {
   final String errorMessage;
-  HomeFailure({required this.errorMessage});
+  PopularFailure({required this.errorMessage});
+}
+class UpcomingSuccess extends HomeStates {}
 
+class UpcomingLoading extends HomeStates {}
+
+class UpcomingFailure extends HomeStates {
+  final String errorMessage;
+  UpcomingFailure({required this.errorMessage});
 }
