@@ -8,6 +8,7 @@ class Constants {
   static const baseUrl = "https://api.themoviedb.org/3/movie/";
   static const apiKey = "api_key=936d9a394d36e540de9f4953662624ae";
   static const popular = "popular?";
+  static const recommended = "top_rated?";
   static const imageUrl = "https://image.tmdb.org/t/p/w500";
   static const upcoming = "upcoming?";
   static List<Widget> tabs = const [

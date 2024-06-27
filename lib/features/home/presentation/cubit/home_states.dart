@@ -20,3 +20,11 @@ class UpcomingFailure extends HomeStates {
   final String errorMessage;
   UpcomingFailure({required this.errorMessage});
 }
+class RecommendedSuccess extends HomeStates {}
+
+class RecommendedLoading extends HomeStates {}
+
+class RecommendedFailure extends HomeStates {
+  final String errorMessage;
+  RecommendedFailure({required this.errorMessage});
+}

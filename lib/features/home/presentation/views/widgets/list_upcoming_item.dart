@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/core/utils/app_assets.dart';
-import 'package:movie_app/core/utils/constants.dart';
 import 'package:movie_app/features/home/presentation/cubit/home_cubit.dart';
 import 'package:movie_app/features/home/presentation/cubit/home_states.dart';
 import 'package:movie_app/features/home/presentation/views/widgets/shimmer_loading.dart';
@@ -34,7 +33,7 @@ class ListUpcomingItem extends StatelessWidget {
                       width: width,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
-                        itemCount: 10,
+                        itemCount: cubit.upcomingModel!.results!.length,
                         itemBuilder: (context, index) => UpcomingItem(
                           poster:
                               cubit.upcomingModel?.results![index].posterPath!??AppAssets.poster,
