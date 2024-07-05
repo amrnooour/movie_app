@@ -1,3 +1,4 @@
+import 'package:hive/hive.dart';
 import 'package:movie_app/core/api/dio_consumer.dart';
 import 'package:movie_app/core/utils/constants.dart';
 import 'package:movie_app/features/home/data/models/popular_model.dart';
@@ -19,6 +20,7 @@ class HomeRepo {
       return left(e.toString());
     }
   }
+
   Future<Either<String, UpcomingModel>> upcomingMovie() async {
     String popular = "${Constants.upcoming}${Constants.apiKey}";
     try {
@@ -29,6 +31,7 @@ class HomeRepo {
       return left(e.toString());
     }
   }
+
   Future<Either<String, RecommendedModel>> recommendedMovie() async {
     String popular = "${Constants.recommended}${Constants.apiKey}";
     try {

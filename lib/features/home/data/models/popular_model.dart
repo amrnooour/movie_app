@@ -1,4 +1,4 @@
-class PopularModel {
+class PopularModel{
   int? page;
   List<Results>? results;
   int? totalPages;

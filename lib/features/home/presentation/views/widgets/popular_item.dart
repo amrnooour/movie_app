@@ -9,8 +9,9 @@ class PopularItem extends StatelessWidget {
   final String moviePicture;
   final String title;
   final String date;
+  final void Function()? onTap;
   const PopularItem(
-      {super.key, required this.poster, required this.moviePicture, required this.title, required this.date});
+      {super.key, required this.poster, required this.moviePicture, required this.title, required this.date, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +22,13 @@ class PopularItem extends StatelessWidget {
       width: width,
       child: Stack(
         children: [
-          Image.network(
-              height: height * .3,
-              width: width,
-              "${Constants.imageUrl}$poster"),
+          GestureDetector(
+            onTap: onTap,
+            child: Image.network(
+                height: height * .3,
+                width: width,
+                "${Constants.imageUrl}$poster"),
+          ),
           Positioned(
               child: Center(child: Image.asset(AppAssets.playButtonImage))),
           Positioned(
