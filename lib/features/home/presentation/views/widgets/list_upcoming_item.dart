@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/features/home/presentation/cubit/popular_states.dart';
 import 'package:movie_app/features/home/presentation/cubit/upcoming_cubit.dart';
 import 'package:movie_app/features/home/presentation/cubit/upcoming_states.dart';
 import 'package:movie_app/features/home/presentation/views/widgets/shimmer_loading.dart';

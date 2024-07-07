@@ -13,6 +13,8 @@ abstract class AppAssets {
   static const poster = "assets/poster.png";
   static const favouriteButton = "assets/bookmark.png";
   static const star = "assets/star.png";
+  static const noMovies = "assets/no_movies.png";
+
 
 
 

@@ -10,6 +10,8 @@ class Constants {
   static const popular = "popular?";
   static const recommended = "top_rated?";
   static const imageUrl = "https://image.tmdb.org/t/p/w500";
+  static const nullImage =
+      "https://image.tmdb.org/t/p/w500/y3LvesiFNWxDVU6ZXHqGsZTpINJ.jpg";
   static const upcoming = "upcoming?";
   static List<Widget> tabs = const [
     HomeViewBody(),
