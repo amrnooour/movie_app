@@ -1,4 +1,3 @@
-import 'package:hive/hive.dart';
 import 'package:movie_app/core/api/dio_consumer.dart';
 import 'package:movie_app/core/utils/constants.dart';
 import 'package:movie_app/features/home/data/models/popular_model.dart';
