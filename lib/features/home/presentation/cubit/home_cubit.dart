@@ -8,6 +8,7 @@ class HomeCubit extends Cubit<HomeStates> {
   HomeCubit(this.homeRepo) : super(HomeInitial());
 
   int currentIndex = 0;
+  bool isInFavourite = false;
   RecommendedModel? recommendedModel;
 
   changeBottomNavIndex(int index) {
@@ -23,5 +24,10 @@ class HomeCubit extends Cubit<HomeStates> {
       recommendedModel = success;
       emit(RecommendedSuccess());
     });
+  }
+
+  favourite({required bool favourite}) {
+    favourite = isInFavourite;
+    emit(IsFavourite());
   }
 }

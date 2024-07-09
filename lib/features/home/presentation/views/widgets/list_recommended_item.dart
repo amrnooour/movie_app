@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/core/functions/firebase_firestore.dart';
 import 'package:movie_app/features/home/presentation/cubit/home_cubit.dart';
 import 'package:movie_app/features/home/presentation/cubit/home_states.dart';
 import 'package:movie_app/features/home/presentation/views/widgets/recommended_item.dart';
@@ -33,12 +34,28 @@ class ListRecommendedItem extends StatelessWidget {
                       child: ListView.builder(
                         itemCount: cubit.recommendedModel!.results!.length,
                         scrollDirection: Axis.horizontal,
-                        itemBuilder: (context, index) =>
-                            RecommendedItem(
-                              poster: cubit.recommendedModel!.results![index].posterPath!,
-                              name: cubit.recommendedModel!.results![index].originalTitle!,
-                              date: cubit.recommendedModel!.results![index].releaseDate!,
-                            ),
+                        itemBuilder: (context, index) => RecommendedItem(
+                          onTap: () {
+                            addfavouriteMovies(
+                                image: cubit.recommendedModel!.results![index]
+                                    .posterPath!,
+                                title: cubit.recommendedModel!.results![index]
+                                    .originalTitle!,
+                                date: cubit.recommendedModel!.results![index]
+                                    .releaseDate!,
+                                overview: cubit.recommendedModel!
+                                    .results![index].overview!);
+                            cubit.favourite(
+                                favourite: cubit.isInFavourite==true? cubit.isInFavourite=false:
+                                    cubit.isInFavourite=true);
+                          },
+                          poster: cubit
+                              .recommendedModel!.results![index].posterPath!,
+                          name: cubit
+                              .recommendedModel!.results![index].originalTitle!,
+                          date: cubit
+                              .recommendedModel!.results![index].releaseDate!,
+                        ),
                       ),
                     )
                   : ShimmerLoading(height: height * .29, width: width);

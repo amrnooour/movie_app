@@ -31,7 +31,8 @@ class ListPopularItem extends StatelessWidget {
                        poster: cubit.popularModel!.results![index].posterPath!,
                         title: cubit.popularModel!.results![index].title!,
                          date: cubit.popularModel!.results![index].releaseDate!,
-                          overView: cubit.popularModel!.results![index].overview!));
+                          overView: cubit.popularModel!.results![index].overview!,
+                          ));
                     },
                     poster: cubit.popularModel!.results![index].backdropPath!,
                     moviePicture:

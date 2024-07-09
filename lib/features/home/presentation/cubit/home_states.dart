@@ -12,3 +12,5 @@ class RecommendedFailure extends HomeStates {
   final String errorMessage;
   RecommendedFailure({required this.errorMessage});
 }
+class IsFavourite extends HomeStates {}
+
