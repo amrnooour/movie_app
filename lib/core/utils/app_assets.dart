@@ -15,6 +15,8 @@ abstract class AppAssets {
   static const star = "assets/star.png";
   static const noMovies = "assets/no_movies.png";
   static const checkbutton = "assets/checkmark.png";
+  static const browseImage = "assets/browse_image.jpg";
+
 
 
 
