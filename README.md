@@ -1,16 +1,28 @@
-# movie_app
+# 📘 Overview
 
-A new Flutter project.
+![m1](https://github.com/user-attachments/assets/25e5c557-4a24-4358-984a-de21ed312658)
 
-## Getting Started
+![m2](https://github.com/user-attachments/assets/68bdf19d-3f57-4e8e-8281-4409a778cd6e)
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## About this App
+
+This application is designed to provide an easy-to-use interface to display movie details and
+enable users to search for any movie of interest. By using the Movies API, we collect and regularly update the
+data to ensure the latest information is available
+
+## The technology used 
+
+• firebase firestore,firebase storage
+• bloc as a state managemaent
+• claen arc as a design arc
+• dio package to handle api request
+• go router package to handle navigation
+
+
+
+
+
+
